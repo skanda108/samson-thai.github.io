@@ -19,3 +19,5 @@
 
 ## How to push work to github
 1) In terminal, type => git add -A
+2) In terminal, type => git commit -m "description of commit"
+3) In terminal, type => git push
