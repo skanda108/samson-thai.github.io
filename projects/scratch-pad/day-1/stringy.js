@@ -186,7 +186,10 @@ function longest(stringOne, stringTwo) {
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //using localeCompare method to compare 2 strings by alphabetical order
+    let result = stringOne.localeCompare(stringTwo);
+    //multiply by -1 to flip result
+    return result * -1;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -202,7 +205,9 @@ function sortAscending(stringOne, stringTwo) {
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
 
-
+    //using localeCompare method to compare 2 strings by alphabetical order
+    let result = stringOne.localeCompare(stringTwo);
+    return result;
 
 
     // YOUR CODE ABOVE HERE //
