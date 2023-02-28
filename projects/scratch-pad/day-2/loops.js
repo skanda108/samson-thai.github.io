@@ -128,12 +128,13 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
+  //storage array
   var arr = [];
-
+  //adding keys of object to array in reverse
   for (var key in object){
     arr.unshift(key);
   }
-
+//logging object's values by calling array elements next to object in bracket notation
 for (var i = 0; i < arr.length; i++){
   console.log(object[arr[i]]);
 }
