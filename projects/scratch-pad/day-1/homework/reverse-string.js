@@ -22,8 +22,15 @@
 function reverseString(input) {
     // YOUR CODE GOES BELOW HERE //
     
-    
-    
+    //create storage array
+    var storeArray = [];
+    //loop to place each character of string into the storage array
+    for (var i = 0; i <= input.length; i++){
+      storeArray.unshift(input[i]);
+    }
+    //create result variable by joining all characters in storage array
+    var result = storeArray.join('');
+    return result;
     
     // YOUR CODE GOES ABOVE HERE //
 }
