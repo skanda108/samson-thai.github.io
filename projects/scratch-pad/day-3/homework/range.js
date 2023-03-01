@@ -24,7 +24,20 @@
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
     
+    var out = [];
+    if (start < end){
+        for (var i = start; i <= end; i++){
+            out.push(i);
+        }
+        
+    } else if (start > end) {
+        for (var i = start; i >= end; i--){
+            out.push(i);
+        }
+    }
     
+    
+    return out;
     
     
     // YOUR CODE GOES ABOVE HERE //
