@@ -61,6 +61,7 @@ function makeContactList() {
         addContact: function(contact){
             contacts.push(contact);
         },
+        //loop through array and match if fullName is nameFirst nameLast
         findContact: function(fullName){
             for (var i = 0; i < contacts.length; i++){
                 if (fullName === contacts[i].nameFirst + ' ' + contacts[i].nameLast){
@@ -70,7 +71,20 @@ function makeContactList() {
                 }
             }
 
-        }
+        },
+        removeContact: function(contact){
+            for (var i = 0; i < contacts.length; i++){
+                contacts.splice(contacts[i], 1);
+            }
+
+        },
+        printAllContactNames: function(){
+            var arr = [];
+            for (var i = 0; i < contacts.length; i++){
+                arr.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast)
+            }
+            var out = arr.join('\n');
+            return out;
     }
 }
 
