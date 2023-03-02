@@ -81,10 +81,11 @@ function makeContactList() {
         printAllContactNames: function(){
             var arr = [];
             for (var i = 0; i < contacts.length; i++){
-                arr.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast)
+                arr.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast);
             }
             var out = arr.join('\n');
             return out;
+        }
     }
 }
 
