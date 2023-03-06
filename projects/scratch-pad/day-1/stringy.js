@@ -189,7 +189,7 @@ function sortAscending(stringOne, stringTwo) {
     //using localeCompare method to compare 2 strings by alphabetical order
     let result = stringOne.localeCompare(stringTwo);
     //multiply by -1 to flip result
-    return result * -1;
+    return result;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -207,7 +207,7 @@ function sortDescending(stringOne, stringTwo) {
 
     //using localeCompare method to compare 2 strings by alphabetical order
     let result = stringOne.localeCompare(stringTwo);
-    return result;
+    return result * -1;
 
 
     // YOUR CODE ABOVE HERE //
