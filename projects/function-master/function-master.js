@@ -70,7 +70,7 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    return 'Welcome' + ' ' + object.name[0].toUpperCase() + object.name.slice(1) + '!';
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -78,7 +78,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    return object.name[0].toUpperCase() + object.name.slice(1) + ' is a ' + object.species[0].toUpperCase() + object.species.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -86,7 +86,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    if (object.noises === undefined){
+        return 'there are no noises';
+    } else if (object.noises.length === 0){
+        return 'there are no noises';
+    } else {
+        return object.noises.join(' ');
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -94,7 +100,12 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    let arr = string.split();
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] === word){
+            return true;
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
