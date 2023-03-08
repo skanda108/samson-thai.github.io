@@ -3,7 +3,11 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
-
+    let out = [];
+    for (var key in object){
+        out.push(object[key]);
+    }
+    return out;
 } 
 
 //////////////////////////////////////////////////////////////////////
@@ -11,7 +15,11 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+    let arr = [];
+    for (let key in object){
+        arr.push(key);
+    }
+    return arr.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +27,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    let arr = [];
+    for (let key in object){
+        if (typeof object[key] === 'string'){
+            arr.push(object[key]);
+        }
+    }
+    return arr.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +41,8 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection)) return 'array';
+    if (typeof collection === 'object') return 'object';
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +50,7 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+    return string[0].toUpperCase() + string.slice(1);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,7 +58,11 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
+    let arr = string.split(' ');
+    for (let i = 0; i < arr.length; i++){
+        arr[i] = arr[i][0].toUpperCase() + arr[i].slice(1);
+    }
+    return arr.join(' ');
 }
 
 //////////////////////////////////////////////////////////////////////
