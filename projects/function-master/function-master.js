@@ -100,12 +100,7 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    let arr = string.split();
-    for (let i = 0; i < arr.length; i++){
-        if (arr[i] === word){
-            return true;
-        }
-    }
+    return string.includes(word);
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -113,7 +108,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -121,7 +117,16 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    if (object.friends === undefined){
+        return false;
+    } else if (object.friends !== undefined){
+        for (let i = 0; i < object.friends.length; i++){
+            if (object.friends[i] === name){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
