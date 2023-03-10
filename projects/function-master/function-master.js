@@ -134,7 +134,27 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
+    var nonFrens = []; //list of non friends
+    var nameList = []; //list of names besides current name input
+    var current = {}; //current object. will use current.friends array to compare against nameList
+    for (let i = 0; i < array.length; i++){
+        if (name === array[i].name){
+            current = array[i];
+        } else {
+            nameList.push(array[i].name);
+        }
+    }
+    if (current.friends.length === 0){ //if the current person has no frens, his non fren list is the same as nameList
+        nonFrens = nameList;
+        return nonFrens;
+    }
 
+    for (let i = 0; i < nameList.length; i++){
+        if (current.friends.indexOf(nameList[i]) === -1){ //indexOf method is important here
+            nonFrens.push(nameList[i]);
+        }
+    }
+    return nonFrens;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -142,7 +162,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    object[key] = value;
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -150,7 +171,15 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    if (array.length > 0){
+        for (var key in object){
+            for (var j = 0; j < array.length; j++){
+                if (key === array[j]){
+                    delete object[key];
+                }
+            }
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -158,7 +187,13 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    var output = [];
+    for (let i = 0; i < array.length; i++){
+        if (output.indexOf(array[i]) === -1){
+            output.push(array[i]);
+        }
+    }
+    return output;
 }
 
 //////////////////////////////////////////////////////////////////////
