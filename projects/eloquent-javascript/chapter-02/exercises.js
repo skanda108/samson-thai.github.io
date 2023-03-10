@@ -3,23 +3,47 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-
+function triangles(num) {
+  for (let i = '#'; i.length <= num; i += '#'){
+    console.log(i);
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function fizzBuzz() {
-  
+function fizzBuzz(num1, num2) {
+  for (var i = num1; i <= num2; i++){
+    if (i % 3 === 0 && i % 5 === 0){ //if a number is a multiple of 3 AND 5 write FizzBuzz
+        console.log('fizzbuzz');
+    } else if (i % 3 === 0){        //if a number is a multiple of 3 write Fizz
+        console.log('fizz');
+    } else if (i % 5 === 0){        //if a number is a multiple of 5 write Buzz
+        console.log('buzz');
+    } else {                        //all other cases print the number
+        console.log(i);
+    }
+    //console.log(i);
+}
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-
+function drawChessboard(num) {
+  let out = '';
+  for (let i = 0; i < num; i++){
+    for (let j = 0; j < num; j++){
+      if ((i + j) % 2 === 0){
+        out += ' ';
+      } else {
+        out += '#';
+      }
+    } 
+    out += '\n';
+  }
+  console.log(out);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
