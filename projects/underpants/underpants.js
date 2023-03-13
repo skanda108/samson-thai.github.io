@@ -188,12 +188,13 @@ _.indexOf = function(array, value){
 
 _.contains = function(array, value){
     for (let i = 0; i < array.length; i++){
-        if (array[i] === value){
-            return true;
+        var out = array[i] === value ? true : false;
+        if (out === true){
+            return out;
         }
     }
-
     return false;
+ 
 }
 
 
@@ -268,7 +269,9 @@ _.unique = function(array){
 *   use _.each in your implementation
 */
 
-
+_.filter = function(array, func){
+    let out = [];
+}
 
 
 /** _.reject
