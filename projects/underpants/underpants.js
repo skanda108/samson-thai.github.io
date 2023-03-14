@@ -271,6 +271,14 @@ _.unique = function(array){
 
 _.filter = function(array, func){
     let out = [];
+
+    for (let i = 0; i < array.length; i++){
+        if (func(array[i], i, array)){
+            out.push(array[i]);
+        }
+    }
+
+    return out;
 }
 
 
@@ -358,6 +366,48 @@ _.filter = function(array, func){
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, func){
+    //determine if func did not receive a value
+    if (func === undefined){
+        //determine if array
+        if (Array.isArray(collection)){
+            //iterate
+            for (let i = 0; i < collection.length; i++){
+                //determine if current value is falsey
+                if (!collection[i]){
+                    return false;
+                }
+            }
+
+        } else { //else it's an object
+            //determine if current value is not truthy
+            for (let key in collection){
+                if (!collection[key]){
+                    return false;
+                }
+            }
+        }
+    } else {
+    //else it did
+        //determine if array
+        if (Array.isArray(collection)){
+            //iterate
+            for (let i = 0; i < collection.length; i++){
+                if (!func(collection[i], i, collection)){
+                    return false;
+                }
+            }
+
+        } else {    //else it's an object   
+            for (let key in collection){
+                if (!func(collection[key], key, collection))
+                return false;
+            }   
+
+        }
+    }
+    return true;
+}
 
 /** _.some
 * Arguments:
