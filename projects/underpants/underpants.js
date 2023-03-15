@@ -388,6 +388,15 @@ _.map = function(collection, func){
 */
 
 
+_.pluck = function(array, prop){
+    //array is an array of objects
+    //use map() method
+    let out = _.map(array, function(object){
+        return object[prop];
+    });
+    return out;
+}
+
 /** _.every
 * Arguments:
 *   1) A collection
@@ -472,6 +481,10 @@ _.every = function(collection, func){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+
+_.some = function(collection, func){
+    
+}
 
 
 /** _.reduce
