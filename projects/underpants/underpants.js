@@ -295,6 +295,18 @@ _.filter = function(array, func){
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(array, func){
+    let out = [];
+
+    for (let i = 0; i < array.length; i++){
+        if (!(func(array[i], i, array))){
+            out.push(array[i]);
+        }
+    }
+
+    return out;
+}
+
 
 /** _.partition
 * Arguments:
@@ -315,6 +327,19 @@ _.filter = function(array, func){
 }
 */
 
+_.partition = function(array, func){
+    let out = [[], []]; //divided into out[0] for truthy and out[1] for falsey
+
+    for (let i = 0; i < array.length; i++){
+        if (func(array[i], i, array)){
+            out[0].push(array[i]);
+        } else {
+            out[1].push(array[i]);
+        }
+    }
+    return out;
+}
+
 
 /** _.map
 * Arguments:
@@ -332,6 +357,24 @@ _.filter = function(array, func){
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+
+_.map = function(collection, func){
+    let out = [];
+    if (Array.isArray(collection)) { //collection is an array
+        for (let i = 0; i < collection.length; i++){
+            if (func(collection[i], i, collection)){
+                out.push(func(collection[i], i, collection));
+            }
+        }
+    } else { //collection is an object
+        for (let key in collection) {
+            if (func(collection[key], key, collection)){
+                out.push(func(collection[key], key, collection));
+            }
+        }
+    }
+    return out;
+}
 
 /** _.pluck
 * Arguments:
@@ -449,6 +492,31 @@ _.every = function(collection, func){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+
+_.reduce = function(array, func, seed){
+    //create result variable
+    let result;
+    //determine if seed is undefined
+    if (seed === undefined){
+        result = array[0];
+        //iterate using a for loop
+        for (let i = 1; i < array.length; i++){
+            //reassign result to invoking function on result, current item, current index, and array
+            result = func(result, array[i], i, array);
+        }
+
+    } else { //else is defined
+        result = seed;
+        //iterate using for loop
+        for (let i = 0; i < array.length; i++){
+            result = func(result, array[i], i, array);
+        }
+
+    }
+    //return result
+    return result;
+
+};
 
 
 /** _.extend
