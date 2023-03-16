@@ -483,7 +483,38 @@ _.every = function(collection, func){
 */
 
 _.some = function(collection, func){
-    
+    //determine if func did not receive a value
+    if (func === undefined){
+        //determine if array
+        if (Array.isArray(collection)){
+            for (let i = 0; i < collection.length; i++){
+                if (collection[i]){
+                    return true;
+                }
+            }
+        } else {    //it's an object
+            for (let key in collection){
+                if (collection[key]){
+                    return true;
+                }
+            }
+        }
+    } else { //func did receive a value
+        if (Array.isArray(collection)){
+            for (let i = 0; i < collection.length; i++){
+                if (func(collection[i], i, collection)){
+                    return true;
+                }
+            }
+        } else {
+            for (let key in collection){
+                if (func(collection[key], key, collection))
+                return true;
+            }
+        }
+
+    }
+    return false;
 }
 
 
@@ -546,6 +577,14 @@ _.reduce = function(array, func, seed){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(){
+    //arguments[0] is the 1st object
+    for (let i = 1; i < arguments.length; i++){
+        Object.assign(arguments[0], arguments[i]);
+    }
+    return arguments[0];
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
