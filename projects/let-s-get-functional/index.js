@@ -55,11 +55,46 @@ var femaleCount = function(array){
     return females;
 };
 
-var oldestCustomer;
+var oldestCustomer = function(array){
+    let ages = _.pluck(customers, 'age');
+    var index;
+    _.reduce(ages, function(oldest, next, i){
+        if (next > oldest){
+            index = i;
+            return next;
+        }
+        return oldest;
+    });
+    return(customers[index]['name']);
+};
 
-var youngestCustomer;
+var youngestCustomer = function(array){
+    let ages = _.pluck(customers, 'age');
+    var index;
+    _.reduce(ages, function(youngest, next, i){
+        if (next < youngest){
+            index = i;
+            return next;
+        }
+        return youngest;
+    })
+    return(customers[index]['name']);
+};
 
-var averageBalance;
+var averageBalance = function(array){
+    let balances = _.pluck(customers, 'balance');
+    balances = _.map(balances, function(element, i, balances){
+        let actual = element.slice(1);
+        actual = actual.replace(',','');
+        return Number(actual);
+    });
+    let sum = _.reduce(balances, function(total, element){
+        return total + element;
+    });
+    let average = (sum / balances.length);
+    return average;
+};
+console.log(averageBalance());
 
 var firstLetterCount;
 
