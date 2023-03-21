@@ -94,13 +94,27 @@ var averageBalance = function(array){
     let average = (sum / balances.length);
     return average;
 };
-console.log(averageBalance());
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter){
+    let out = _.filter(array, function(customer){
+        return customer.name[0] === letter.toUpperCase() || customer.name[0] === letter.toLowerCase();
+    });
+    return out.length;
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    let person = _.filter(array, function(element){
+      return element.name === customer;
+    })[0];
+    let out = _.filter(person.friends, function(element){
+        return element.name[0] === letter.toUpperCase() || element.name[0] === letter.toLowerCase; 
+    });
+    return out.length;
+};
 
-var friendsCount;
+var friendsCount = function(array, name){
+    
+};
 
 var topThreeTags;
 
