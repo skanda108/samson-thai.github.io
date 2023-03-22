@@ -2,15 +2,40 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(a, b, step) {
+  let arr = [];
+  if (a === b){
+    return arr;
+  }
+  if (step === undefined){
+    step = 1;
+  }
+  if (step >= 1){
+    for (let i = a; i <= b; i += step){
+      arr.push(i);
+    }
+  } else {
+    for (let i = a; i >=b; i += step){
+      arr.push(i);
+    }
+  }
 
+  return arr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // sum /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function sum() {
+function sum(array) {
+  if (array === []){
+    return 0;
+  }
+  let total = 0;
+  for (let i = 0; i < array.length; i++){
+    total += array[i];
+  }
+  return total;
 
 }
 
@@ -18,7 +43,12 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+  let out = [];
+  for (let i = 0; i < array.length; i++){
+    out.unshift(array[i]);
+  }
+  return out;
 
 }
 
@@ -26,8 +56,19 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace(array) {
+  let leftSide = 0;
+  let rightSide = array.length - 1;
 
+  while (leftSide < rightSide){
+    let old = array[leftSide];
+    array[leftSide] = array[rightSide];
+    array[rightSide] = old;
+
+    leftSide++;
+    rightSide--;
+  }
+  return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
