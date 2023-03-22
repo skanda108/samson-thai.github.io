@@ -177,10 +177,7 @@ var gcd = function(x, y) {
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
   //base
-  if (str1.length !== str2.length){
-    return false;
-  }
-  if (str1.length === 0){
+  if (str1.length === 0 && str2.length === 0){
     return true;
   }
   //recursion
@@ -193,28 +190,65 @@ var compareStr = function(str1, str2) {
 
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
-var createArray = function(str){
+var createArray = function(str, array=[]){
+  //base
+  if (str.length === 0){
+    return array;
+  }
+  //recursion
+  array.push(str[0]);
+  return createArray(str.slice(1), array)
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, arr=[]) {
+  //base
+  if (array.length === 0){
+    return arr;
+  }
+  //recursion
+  arr.unshift(array[0]);
+  return reverseArr(array.slice(1), arr);
 };
 
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, arr=[]) {
+  //base
+  if (length === 0){
+    return arr;
+  }
+  //recursion
+  arr.push(value);
+  return buildList(value, length - 1, arr);
 };
 
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count=0) {
+  //base
+  if (array.length === 0){
+    return count;
+  }
+  //recursion
+  if (array[0] === value){
+    count++;
+  }
+  return countOccurrence(array.slice(1), value, count);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback, arr=[]) {
+  //base
+  if (array.length === 0){
+    return arr;
+  }
+  //recursion
+  arr.push(callback(array[0]));
+  return rMap(array.slice(1), callback, arr);
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
@@ -249,18 +283,45 @@ var fibonacci = function(n) {
 // nthFibo(5); // 5
 // nthFibo(7); // 13
 // nthFibo(3); // 2
-var nthFibo = function(n) {
+var nthFibo = function(n, num1=0, num2=1, sum=0) {
+  //base
+  if (n < 0){
+    return null;
+  }
+  if (n === 0){
+    return num1;
+  }
+  //recursion
+  //console.log(sum);
+  sum = num1 + num2;
+  num1 = num2;
+  num2 = sum;
+  return nthFibo(n - 1, num1, num2, sum);
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
-var capitalizeWords = function(input) {
+var capitalizeWords = function(input, arr=[]) {
+  //base
+    if (input.length === 0){
+      return arr;
+  }
+  //recursion
+  arr.push(input[0].toUpperCase());
+  return capitalizeWords(input.slice(1), arr);
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, arr=[]) {
+  //base
+  if (array.length === 0){
+    return arr;
+  }
+   //recursion
+  arr.push(array[0][0].toUpperCase() + array[0].slice(1));
+  return capitalizeFirst(array.slice(1), arr);
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
