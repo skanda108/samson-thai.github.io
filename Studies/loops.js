@@ -61,3 +61,19 @@ for (let i = array.length - 1; i >= 0; i--){
 
 //this example begins at the last item in an array and counts backwards
 //the intial value of i is array.length - 1 which represents the last item in an array
+
+//For In loop
+//The for in loop is designed to iterate over an object
+
+let object = {
+    key1: 'value1',
+    key2: 'value2',
+    key3: 'value3'
+};
+
+for (let key in object){
+    console.log(key);
+    console.log(object[key]);
+}
+
+//In the above example, key represents the key in an object
