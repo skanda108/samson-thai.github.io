@@ -94,7 +94,7 @@ let count = 0;  //initializing counting variable
 
 while(count < 10){      //loop continues while this statement is true
     console.log(count); //code to be executed repeatedly
-    count++;            //incrementing the counting variable
+    count++;            //incrementing the counting variable. not incrementing the count variable would lead to an infinite loop causing the program to crash
 }
 
 //while loops are useful when the exact number of iterations needed is not known
