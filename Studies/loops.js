@@ -76,4 +76,25 @@ for (let key in object){
     console.log(object[key]);
 }
 
-//In the above example, key represents the key in an object
+//In the above example, the key variable represents the key in an object
+//this for in loop will print every key and value (object[key] evaluates to value) in the object
+/**
+ * The output will look like this:
+key1
+value1
+key2
+value2
+key3
+value3
+ */
+
+//while loop
+
+let count = 0;  //initializing counting variable
+
+while(count < 10){      //loop continues while this statement is true
+    console.log(count); //code to be executed repeatedly
+    count++;            //incrementing the counting variable
+}
+
+//while loops are useful when the exact number of iterations needed is not known
