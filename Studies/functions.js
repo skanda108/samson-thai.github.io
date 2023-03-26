@@ -24,3 +24,14 @@ console.log(multiply(2, 10)); //outputs 20
 //2 and 10 are the arguments
 //arguments are inputs when the function is executed
 //parameters can be thought of as car seats and arguments are the passengers
+
+//Named Functions
+//The following is an example of a named function
+
+console.log(add(1, 2)); //named function 'add' is hoisted
+
+function add(p1,p2){
+    return p1 + p2;
+}
+
+//the name of this function is add. Named functions are also hoisted to the top of the program
