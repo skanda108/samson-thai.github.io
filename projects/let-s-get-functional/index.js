@@ -56,7 +56,7 @@ var femaleCount = function(array){
 };
 
 var oldestCustomer = function(array){
-    let ages = _.pluck(customers, 'age');
+    let ages = _.pluck(array, 'age');
     var index;
     _.reduce(ages, function(oldest, next, i){
         if (next > oldest){
@@ -65,11 +65,11 @@ var oldestCustomer = function(array){
         }
         return oldest;
     });
-    return(customers[index]['name']);
+    return(array[index]['name']);
 };
 
 var youngestCustomer = function(array){
-    let ages = _.pluck(customers, 'age');
+    let ages = _.pluck(array, 'age');
     var index;
     _.reduce(ages, function(youngest, next, i){
         if (next < youngest){
@@ -78,19 +78,19 @@ var youngestCustomer = function(array){
         }
         return youngest;
     })
-    return(customers[index]['name']);
+    return(array[index]['name']);
 };
 
 var averageBalance = function(array){
-    let balances = _.pluck(customers, 'balance');
-    balances = _.map(balances, function(element, i, balances){
+    let balances = _.pluck(array, 'balance');
+    balances = _.map(balances, function(element){
         let actual = element.slice(1);
         actual = actual.replace(',','');
         return Number(actual);
     });
     let sum = _.reduce(balances, function(total, element){
         return total + element;
-    });
+    }, 0);
     let average = (sum / balances.length);
     return average;
 };
@@ -113,10 +113,20 @@ var friendFirstLetterCount = function(array, customer, letter){
 };
 
 var friendsCount = function(array, name){
-    
+    let frens = [];
+    _.each(array, function(customer){                   //array is customers.json. customer is array[i] element
+        _.each(customer.friends, function(friend){      //customer.friends is array[i].friends array. friend is friend object
+            if (friend.name === name){
+                frens.push(customer.name);
+            }
+        })
+    })
+    return frens;
 };
 
-var topThreeTags;
+var topThreeTags = function(array){
+
+};
 
 var genderCount;
 
