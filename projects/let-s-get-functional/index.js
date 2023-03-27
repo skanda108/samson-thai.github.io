@@ -146,7 +146,18 @@ var topThreeTags = function(array){
     return output;
 };
 
-var genderCount;
+//must use _.reduce
+//output object {}
+var genderCount = function(array){
+    return _.reduce(array, function(acc, current){
+        if (acc.hasOwnProperty(current.gender)){
+            acc[current.gender]++;
+        } else {
+            acc[current.gender] = 1;
+        }
+        return acc;
+    }, {})
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
