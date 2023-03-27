@@ -125,7 +125,25 @@ var friendsCount = function(array, name){
 };
 
 var topThreeTags = function(array){
-
+    let output = [];
+    let objTags = _.reduce(array, function(acc, current){
+        for (let i = 0; i < current.tags.length; i++){
+            if (acc.hasOwnProperty(current.tags[i])){
+                acc[current.tags[i]]++;
+            } else{
+                acc[current.tags[i]] = 1;
+            }
+        }
+        return acc;
+    }, {});
+    let keyTags = Object.entries(objTags); //array of tags and count
+    keyTags.sort(function(a, b){
+        return b[1] - a[1];
+    });
+    output.push(keyTags[0][0]);
+    output.push(keyTags[1][0]);
+    output.push(keyTags[2][0]);
+    return output;
 };
 
 var genderCount;
