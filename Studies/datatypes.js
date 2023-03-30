@@ -22,6 +22,9 @@
  * Arrays: collections of values as a list
  * Functions: perform actions on data and return them
  * 
- * 
+ * Complex datatypes aggregate other values and therefore have an indefinite size.
+ * They are stored as reference when assigned to a variable. Making a copy of that variable makes a reference to where that
+ * datatype is stored and not its literal value.
+ * Cha
  * 
  */
