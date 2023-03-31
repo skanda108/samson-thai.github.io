@@ -13,6 +13,7 @@
  * NaN: numeral type that stands for not a number
  * Undefined: an undefined value
  * Null: the absence of value
+ * Infinity and -infinity: A special numeric value that's greater than any number
  * 
  * They are simple because they are atomic and immutable. They do not hold, collect or aggregate other values.
  * Operations on simple values return new simple values. They do not alter the original value.
@@ -25,6 +26,6 @@
  * Complex datatypes aggregate other values and therefore have an indefinite size.
  * They are stored as reference when assigned to a variable. Making a copy of that variable makes a reference to where that
  * datatype is stored and not its literal value.
- * Cha
+ * Changes to the copy do not affect the original.
  * 
  */
