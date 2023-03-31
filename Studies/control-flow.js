@@ -39,3 +39,7 @@ if (age < 21){                              //executed if statement is true
  * need to specify the conditional statement.
  * 
  */
+
+//Switch
+//Keyword switch is functionally the same as if, else if, else, but allows for cleaner looking code
+
