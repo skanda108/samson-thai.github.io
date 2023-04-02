@@ -35,3 +35,41 @@ function add(p1,p2){
 }
 
 //the name of this function is add. Named functions are also hoisted to the top of the program
+
+//Anonymous Functions & Function Expressions
+//Functions that are defined without a name. This anonymous function is assigned to x.
+
+let x = function(){
+    console.log('Hello friend!');
+}
+
+x();    //anonymous functions are not hoisted.
+
+//Scope
+//Variables defined in a function are locally scoped
+
+var a = 'globe scoped';
+function example(){
+	var b = 'local scoped';
+	console.log(a);
+	console.log(b);
+}
+console.log(a);	//global scoped
+console.log(b);	//throws an error
+example();	//global scoped	local scoped
+
+//In the example above, variable 'a' has a global scope thus function example has access to it
+//variable 'b' is locally scoped so trying to access it in line 58 throws an error
+//invoking the function displays a's value and b's value because the function has access to the global variable and its own local variable
+
+//Closure is a function having access to the parent scope, even after the parent function has closed
+
+function display() {
+    var name = 'Samson'; // name is a local variable created by display
+    function displayName() {
+      // displayName() is the inner function, that forms the closure
+      console.log(name); // use variable declared in the parent function
+    }
+    displayName();
+  }
+  display();        //=> Samson
