@@ -61,6 +61,12 @@ function whichColor(color){                     //function takes in a string rep
 
   console.log(whichColor('purple'));        //=> 'Purple represents royalty.'
   console.log(whichColor('green'));         //=> 'Green represents wealth.'
-  console.log(whichColor('gold'));
-  console.log(whichColor('pink'));
-  console.log(whichColor('teal'));
+  console.log(whichColor('gold'));          //=> 'Gold represents power.'
+  console.log(whichColor('pink'));          //=> 'This color is blah.'
+  console.log(whichColor('teal'));          //=> 'Colors are awesome!'
+
+  //In the example above, the function takes in a string input called color.
+  //Then it matches the input to any of the cases.
+  //If none of the cases match the input, it returns 'Colors are awesome!'
+  //Just like using if, if else, else, switch statements evaluate condtions being true or false and executing or skipping blocks of code
+  //depending on the truthiness of each condition.
