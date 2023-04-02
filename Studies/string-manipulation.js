@@ -39,3 +39,20 @@ console.log(text.toUpperCase()); //=> HELLO FRIEND!
 
 //toLowerCase converts a string to lowercase
 console.log(text.toLowerCase()); //=> hello friend!
+
+//concat joins two or more strings. It can be used instead of the + operator
+
+let text1 = 'My name is';
+let text2 = 'Sam.';
+console.log(text1.concat(' ', text2)); //=> My name is Sam.
+//same result using the + operator
+console.log(text1 + ' ' + text2); //=> My name is Sam.
+
+//strings can be converted into arrays with the split method
+let text3 = 'abcdefg';
+let array = text3.split(''); //splits at every index
+console.log(array); //=> ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+
+//the array can be converted back into a string with the join method
+let joined = array.join('');
+console.log(joined); //=> abcdefg
