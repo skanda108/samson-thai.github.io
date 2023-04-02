@@ -43,3 +43,24 @@ if (age < 21){                              //executed if statement is true
 //Switch
 //Keyword switch is functionally the same as if, else if, else, but allows for cleaner looking code
 
+function whichColor(color){                     //function takes in a string representing a color
+    switch (color){
+      case 'purple': return 'Purple represents royalty.';      //if color is 'purple' return 'Purple represents royalty.'
+      case 'green': return 'Green represents wealth.';
+      case 'gold': return 'Gold represents power.';
+      case 'blue':                                              //if color is 'blue', 'orange', 'pink', 'red', then return 'This color is blah.'
+      case 'orange':
+      case 'pink':
+      case 'red':
+        return 'This color is blah.';
+      default:
+        return 'Colors are awesome!';                   //if color is any other input other than the specified cases, then return 'Colors are awesome!'
+    }
+    
+  }
+
+  console.log(whichColor('purple'));        //=> 'Purple represents royalty.'
+  console.log(whichColor('green'));         //=> 'Green represents wealth.'
+  console.log(whichColor('gold'));
+  console.log(whichColor('pink'));
+  console.log(whichColor('teal'));
