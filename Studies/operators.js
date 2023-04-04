@@ -18,12 +18,12 @@
 //ASSIGNMENT (=) assigns a value to a variable
 
 let x = 10; //x now has a value of ten
-x += 5; //same as x = x + 5     // => 15
-x -= 6; //same as x = x - 6     // => 9
-x *= 10; //same as x = x * 10   // => 90
-x /= 6; //same as x = x / 6     // => 15
-x %= 4; //same as x = x % 4     // => 3
-x **= 2; //same as x = x ** 2   // => 9
+x += 5;     //same as x = x + 5     // => 15
+x -= 6;     //same as x = x - 6     // => 9
+x *= 10;    //same as x = x * 10   // => 90
+x /= 6;     //same as x = x / 6     // => 15
+x %= 4;     //same as x = x % 4     // => 3
+x **= 2;    //same as x = x ** 2   // => 9
 
 //COMPARISON compare 2 values and evaluate to either true or false (boolean)
 
