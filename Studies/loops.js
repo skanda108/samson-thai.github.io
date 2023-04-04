@@ -17,6 +17,12 @@
  */
 
 //Examples:
+/**
+ * for loops are made of 3 statements
+ * let i = 0; an index variable initialized to 0
+ * i < 10; condition to stop looping. this example will continue looping until i is greater than or equal to 10
+ * i++; update statement that increases the index, i, by 1 after each iteration
+ */
 //for loop, count up example
 
 for (let i = 0; i < 10; i++){
