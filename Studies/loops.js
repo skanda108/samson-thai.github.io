@@ -22,6 +22,7 @@
  * let i = 0; start statement. an index variable initialized to 0
  * i < 10; condition to stop looping. this example will continue looping until i is greater than or equal to 10
  * i++; update statement that increases the index, i, by 1 after each iteration
+ * these 3 statements go in parentheses, separated by ';'
  */
 //for loop, count up example
 
