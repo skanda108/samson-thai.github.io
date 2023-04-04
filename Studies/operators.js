@@ -27,8 +27,10 @@ x **= 2; //same as x = x ** 2   // => 9
 
 //COMPARISON compare 2 values and evaluate to either true or false (boolean)
 
-console.log(1 < 2); //true
-console.log(1 >= 2); //false
+console.log(1 < 2); //true      less than
+console.log(1 <= 1); //true     less than or equal to
+console.log(3 > 1); //true      greater than
+console.log(1 >= 2); //false    greater than or equal to
 
 //STRICT and LOOSE COMPARISON
 // === is stricly equal to          !== strictly not equal to
