@@ -68,8 +68,11 @@ function display() {
     var name = 'Samson'; // name is a local variable created by display
     function displayName() {
       // displayName() is the inner function, that forms the closure
-      console.log(name); // use variable declared in the parent function
+      return 'My name is ' + name; // use variable declared in the parent function
     }
-    displayName();
+    return displayName(); //inner function is called and uses parent function's local variable
   }
-  display();        //=> Samson
+  
+  console.log(display());        //=> My name is Samson
+
+  //inner function, displayName, has access to the parent scope, even after the parent function, display, has closed
